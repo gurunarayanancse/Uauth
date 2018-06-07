@@ -17,57 +17,47 @@
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.fa {
+  padding: 10px;
+  font-size: 15px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+</style>
 </head>
 
 <body class="bg-dark">
-
-
-
-
-<div id="fb-root"></div>
-<script>
-
-var i;
-//FACEBOOK API*************************
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1407297639369778',
-      cookie     : true,
-      xfbml      : true,
-      version    : 'v3.0'
-    });
-    FB.getLoginStatus(function(response) {
-	
-    if(response.status == 'connected'){
-		window.location='http://localhost:8081/dashboard.html';
-	}
-	else
-	{
-		alert("fail");
-	}
-	
-  });  
-    //FB.AppEvents.logPageView();   
-      
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-
-   
-   //****************************************************************
-   
-
-	
-</script>
-    
-
-</script>
 
   <div class="container">
     <div class="card card-login mx-auto mt-5">
@@ -95,9 +85,13 @@ var i;
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="/register.html">Register an Account</a>
-          <a class="d-block small" href="http://127.0.0.1:8081/forgot-password.html">Forgot Password?</a><br><br>
-<div class="fb-login-button" data-max-rows="1" data-size="medium"  data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>        </div>
+          <a class="d-block small" href="http://127.0.0.1:8081/forgot-password.html">Forgot Password?</a>
       </div>
+	  <center>
+	  <a href="http://localhost:8081/login/facebook" class="fa fa-facebook"></a>
+		<a href="http://localhost:8081/login/twitter" class="fa fa-twitter"></a>
+		<a href="http://localhost:8081/login/google" class="fa fa-google"></a>
+		</center>
     </div>
   </div>
   <!-- Bootstrap core JavaScript-->
