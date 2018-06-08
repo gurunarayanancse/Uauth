@@ -33,13 +33,13 @@ module.exports = function(passport){
 	console.log(result);
 	if(result[0].pwd != req.query.pwd)
 	{
-			res.send("<script>alert('You are not logged in'); window.location='/';</script>");
+			res.send("<script>alert('You are not logged in'); window.location='http://18.191.103.109:8081/';</script>");
 		
 		
 		
 	} 
 	else{
-		res.send("<script>window.location='/dashboard.html';</script>");
+		res.send("<script>window.location='http://18.191.103.109:8081/dashboard.html';</script>");
 	}
 	
   });
@@ -74,13 +74,13 @@ module.exports = function(passport){
 					console.log("User Created");	
 					});
 				
-					res.send("<script>alert('Registered successfully'); window.location='/';</script>");		
+					res.send("<script>alert('Registered successfully'); window.location='http://18.191.103.109:8081/';</script>");		
 
 		}
 		
 		else
 		{	
-		res.send("<script>alert('Password not same'); window.location='/register.html';</script>");
+		res.send("<script>alert('Password not same'); window.location='http://18.191.103.109:8081/register.html';</script>");
 		}
   
 	}
@@ -122,7 +122,7 @@ MongoClient.connect(uri, function(err, db) {
   dbo.collection("cust").find(query).toArray(function(err, result) {
 	if(empty(result))
 	{
-			res.send("<script>alert('Sorry You are not a registered User'); window.location='/forgot-password.html';</script>");
+			res.send("<script>alert('Sorry You are not a registered User'); window.location='http://18.191.103.109:8081/forgot-password.html';</script>");
 	} 
 	else
 	{
@@ -146,7 +146,7 @@ MongoClient.connect(uri, function(err, db) {
 		  if (error) {
 			console.log(error);
 		  } else {
-			res.send("<script>alert('Mail sent'); window.location='/';</script>");
+			res.send("<script>alert('Mail sent'); window.location='http://18.191.103.109:8081/';</script>");
 		  }
 		}); 
 
@@ -167,7 +167,7 @@ MongoClient.connect(uri, function(err, db) {
 
 	// handle the callback after facebook has authenticated the user
 	router.get('/login/twitter/callback',function(req, res){
-		res.send("<script> window.location='/dashboard.html';</script>");
+		res.send("<script> window.location='http://18.191.103.109:8081/dashboard.html';</script>");
 	});
 
 	// route for twitter authentication and login
@@ -177,18 +177,18 @@ MongoClient.connect(uri, function(err, db) {
 
 	// handle the callback after facebook has authenticated the user
 	router.get('/login/facebook/callback',function(req, res){
-		res.send("<script> window.location='/dashboard.html';</script>");
+		res.send("<script> window.location='http://18.191.103.109:8081/dashboard.html';</script>");
 	});
 	
 	
 	router.get('/login/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
 		
 router.get('/login/google/callback',function(req, res){
-		res.send("<script> window.location='/dashboard.html';</script>");
+		res.send("<script> window.location='http://18.191.103.109:8081/dashboard.html';</script>");
 	});
 	/* GET Twitter View Page */
 	router.get('/twitter', isAuthenticated, function(req, res){
-		res.render('twitter', { user: req.user });
+		res.render('twitter', { user: req.user });z
 	});
 
 	return router;
